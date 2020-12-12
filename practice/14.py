@@ -1,23 +1,22 @@
 chars = input()
 
 def zip_chars(s):
-    i = 1
-    count = 1
-    temp = s[0]
-    result = []
+    count = 0
+    temp = ''
+    result = ''
     
-    while i < len(s):
-        if temp == s[i]:
-            count += 1
-        else:
-            result.append(temp)
-            result.append(str(count))
+    for c in s:
+        if c != temp:
+            temp = c
+            if count:
+                result += str(count)
+            result += c
             count = 1
-        temp = s[i]
-        i += 1
-
-    result.append(temp)
-    result.append(str(count))
+        else:
+            count += 1
+    
+    if count:
+        result += str(count)
     
     return ''.join(result)
 

@@ -3,8 +3,11 @@ class Calculator:
         self.nums = nums
 
     def sum(self):
-        return sum(self.nums)
-
+        sum = 0
+        for n in self.nums:
+            sum += n
+        return sum
+ 
     def avg(self):
         return self.sum() / len(self.nums)
 

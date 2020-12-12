@@ -1,21 +1,20 @@
 s = input('input: ')
 inputted_numbers  = s.split(' ')
 
-result = [];
+def check_dup_num(s):
+    bucket = []
+    
+    for n in s:
+        if n not in result:
+            bucket.append(n)
+        else:
+            return False
+
+    return len(bucket) == 10
+
+result = []
 for numbers in inputted_numbers:
-    existed_numbers = {}
-    existed = True
-
-    if len(numbers) < 10:
-        existed = False
-    else:
-        for n in numbers:
-            if n in existed_numbers:
-               existed = False
-               break
-            existed_numbers[n] = n
-
-    result.append(existed)
+    result.append(check_dup_num(numbers))
 
 print(result)
 

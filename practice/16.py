@@ -1,4 +1,4 @@
-MOS_RULES = {
+MORSE_RULES = {
     '.-': 'A',	 '-.': 'N',
     '-...': 'B', '---': 'O',
     '-.-.': 'C', '.--.': 'P',
@@ -13,15 +13,19 @@ MOS_RULES = {
     '.-..': 'L', '-.--': 'Y',
     '--': 'M',   '--..': 'Z' }
 
-inputted_mos = input('input: ')
-words_mos = inputted_mos.split('  ')
+def morse(s):
+    result = []
 
-result = ''
-for word_mos in words_mos:
-    alphabets_mos = word_mos.split(' ')
-    for alphabet_mos in alphabets_mos:
-        result += MOS_RULES[alphabet_mos]
-    result += ' '
+    words = s.split('  ')
+    for word in words:
+        chars = word.split(' ')
+        for char in chars:
+            result.append(MORSE_RULES[char])
+        result.append(' ')
 
-print(result.strip())
+    return ''.join(result)
+
+inputted_morse = input('input: ')
+
+print(morse(inputted_morse))
 
